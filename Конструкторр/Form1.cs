@@ -12,30 +12,30 @@ namespace Конструкторр
 {
     public partial class Form1 : Form
     {
-        Button[] buttons = new Button[16];
-        //int[,] loc = new int[4, 4];
+        private Button[] _buttons = new Button[16];
+        private byte[] _currentState;
         public Form1()
         {
             InitializeComponent();
             {
-                buttons[0] = btn1;
-                buttons[1] = btn2;
-                buttons[2] = btn3;
-                buttons[3] = btn4;
-                buttons[4] = btn5;
-                buttons[5] = btn6;
-                buttons[6] = btn7;
-                buttons[7] = btn8;
-                buttons[8] = btn9;
-                buttons[9] = btn10;
-                buttons[10] = btn11;
-                buttons[11] = btn12;
-                buttons[12] = btn13;
-                buttons[13] = btn14;
-                buttons[14] = btn15;
-                buttons[15] = btn16;
+                _buttons[0] = btn1;
+                _buttons[1] = btn2;
+                _buttons[2] = btn3;
+                _buttons[3] = btn4;
+                _buttons[4] = btn5;
+                _buttons[5] = btn6;
+                _buttons[6] = btn7;
+                _buttons[7] = btn8;
+                _buttons[8] = btn9;
+                _buttons[9] = btn10;
+                _buttons[10] = btn11;
+                _buttons[11] = btn12;
+                _buttons[12] = btn13;
+                _buttons[13] = btn14;
+                _buttons[14] = btn15;
+                _buttons[15] = btn16;
             }
-            foreach (var item in buttons)
+            foreach (var item in _buttons)
             {
                 item.Click += new System.EventHandler(this.butt_click);
             }
@@ -45,7 +45,7 @@ namespace Конструкторр
         private void createRand()
         {
             Random r = new Random();
-            int[] data = new int[16] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+            byte[] data = new byte[16] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 
             for (int i = 15; i >= 1; --i)
             {
@@ -55,13 +55,13 @@ namespace Конструкторр
 
             for (int i = 0; i < 16; i++)
             {
-                buttons[i].Text = (data[i] == 0)?"":data[i] + "";
+                _buttons[i].Text = (data[i] == 0)?"":data[i] + "";
                 if (data[i] == 0)
                 {
-                    buttons[i].Visible = false;
+                    _buttons[i].Visible = false;
                 }
-                //loc[i / 4, i % 4] = data[i];
             }
+            _currentState = data;
         }
         
         void swap<T>(ref T a,ref T b)
