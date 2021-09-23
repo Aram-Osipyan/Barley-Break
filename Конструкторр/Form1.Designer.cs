@@ -166,6 +166,7 @@
             this.btn15.Text = "15";
             this.btn15.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btn15.UseVisualStyleBackColor = true;
+            this.btn15.Click += new System.EventHandler(this.butt_click);
             // 
             // btn12
             // 
@@ -244,7 +245,7 @@
             this.Controls.Add(this.btn1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "barley-break";
             this.ResumeLayout(false);
 
         }
