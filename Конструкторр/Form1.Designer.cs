@@ -166,7 +166,6 @@
             this.btn15.Text = "15";
             this.btn15.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btn15.UseVisualStyleBackColor = true;
-            this.btn15.Click += new System.EventHandler(this.butt_click);
             // 
             // btn12
             // 

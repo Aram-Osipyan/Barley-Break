@@ -5,16 +5,42 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barley-Break", "Конструкторр\Barley-Break.csproj", "{8E275F5C-C19C-42AC-B0D4-12D4F1081474}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarelyBreakConsoleApp", "BarelyBreakConsoleApp\BarelyBreakConsoleApp.csproj", "{00001DD7-D5DB-4950-838D-165E84D85D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Priority Queue", "Priority Queue\Priority Queue.csproj", "{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release 2.0|Any CPU = Release 2.0|Any CPU
+		Release 4.5|Any CPU = Release 4.5|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Release 2.0|Any CPU.ActiveCfg = Release|Any CPU
+		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Release 2.0|Any CPU.Build.0 = Release|Any CPU
+		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Release 4.5|Any CPU.ActiveCfg = Release|Any CPU
+		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Release 4.5|Any CPU.Build.0 = Release|Any CPU
 		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E275F5C-C19C-42AC-B0D4-12D4F1081474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Release 2.0|Any CPU.ActiveCfg = Release|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Release 2.0|Any CPU.Build.0 = Release|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Release 4.5|Any CPU.ActiveCfg = Release|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Release 4.5|Any CPU.Build.0 = Release|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00001DD7-D5DB-4950-838D-165E84D85D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Release 2.0|Any CPU.ActiveCfg = Release 2.0|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Release 2.0|Any CPU.Build.0 = Release 2.0|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Release 4.5|Any CPU.ActiveCfg = Release 4.5|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Release 4.5|Any CPU.Build.0 = Release 4.5|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1531C1EA-BD53-41D1-A34B-CFCDF79D2651}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
