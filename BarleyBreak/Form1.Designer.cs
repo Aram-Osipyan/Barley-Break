@@ -1,4 +1,4 @@
-﻿namespace Конструкторр
+﻿namespace BarelyBreak
 {
     partial class Form1
     {
@@ -44,6 +44,7 @@
             this.btn14 = new System.Windows.Forms.Button();
             this.btn5 = new System.Windows.Forms.Button();
             this.btn16 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn1
@@ -221,11 +222,24 @@
             this.btn16.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btn16.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(100, 325);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(147, 56);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.Text = "00 : 00";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 327);
+            this.ClientSize = new System.Drawing.Size(343, 393);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btn16);
             this.Controls.Add(this.btn14);
             this.Controls.Add(this.btn5);
@@ -246,6 +260,7 @@
             this.Name = "Form1";
             this.Text = "barley-break";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,6 +282,7 @@
         private System.Windows.Forms.Button btn14;
         private System.Windows.Forms.Button btn5;        
         private System.Windows.Forms.Button btn16;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

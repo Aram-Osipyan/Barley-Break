@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using Priority_Queue;
-namespace BarelyBreakConsoleApp
+namespace BarelyBreak
 {
     class Algorothm
     {
         private BarleyState _initState;
         private FastPriorityQueue<BarleyState> _priorityQueue;
-        private Dictionary<long,int> _costSoFar;
+        private Dictionary<long, int> _costSoFar;
         private Dictionary<long, long> _cameTo;
         public event Action<Dictionary<long, long>, long> Algorithmfinished;
         public Algorothm(BarleyState initState)
         {
-            
+
             _initState = initState;
             initState.Priority = 0;
-            
+
             _priorityQueue = new FastPriorityQueue<BarleyState>(100000000);
             _costSoFar = new Dictionary<long, int>(10000000);
             _cameTo = new Dictionary<long, long>();
-            
-            _priorityQueue.Enqueue(initState,0);
+
+            _priorityQueue.Enqueue(initState, 0);
             _costSoFar[_initState.HashCode] = 0;
         }
 
@@ -32,7 +32,7 @@ namespace BarelyBreakConsoleApp
 
                 if (current.Heuristic == 0)
                 {
-                    Algorithmfinished(_cameTo,current.HashCode);
+                    Algorithmfinished(_cameTo, current.HashCode);
                     break;
                 }
 
@@ -44,17 +44,13 @@ namespace BarelyBreakConsoleApp
                     {
                         _costSoFar[next.HashCode] = newCost;
                         next.Priority = newCost + next.Heuristic;
-                        _priorityQueue.Enqueue(next,next.Priority);
+                        _priorityQueue.Enqueue(next, next.Priority);
                         _cameTo[next.HashCode] = current.HashCode;
                     }
-                    else
-                    {
-                        BarleyState.ReturnState(next);
-                    }
                 }
-                
+
             }
-            
+
         }
     }
 }

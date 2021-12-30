@@ -1,32 +1,14 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Priority_Queue;
-namespace BarelyBreakConsoleApp
+namespace BarelyBreak
 {
-    public class ObjectPool<T>
-    {
-        private readonly ConcurrentBag<T> _objects;
-        private readonly Func<T> _objectGenerator;
-
-        public ObjectPool(Func<T> objectGenerator)
-        {
-            _objectGenerator = objectGenerator ?? throw new ArgumentNullException(nameof(objectGenerator));
-            _objects = new ConcurrentBag<T>();
-        }
-
-        public T Get() => _objects.TryTake(out T item) ? item : _objectGenerator();
-
-        public void Return(T item) => _objects.Add(item);
-    }
-    class BarleyState : FastPriorityQueueNode,IComparable<BarleyState>
+    class BarleyState : FastPriorityQueueNode, IComparable<BarleyState>
     {
         private static List<int>[] _nextSteps;
-        private static ObjectPool<byte[]> _statePool;
         private byte[] _currentState;
         private int _heuristic;
         private byte _spaceIndex;
@@ -35,13 +17,13 @@ namespace BarelyBreakConsoleApp
 
         public byte[] CurrentState
         {
-            get { return _currentState; }            
+            get { return _currentState; }
         }
 
         public int Priority { get; set; }
         public int Heuristic { get { return _heuristic; } }
 
-        public  long HashCode { private set; get; }
+        public long HashCode { private set; get; }
         static BarleyState()
         {
             _nextSteps = new List<int>[16];
@@ -54,7 +36,7 @@ namespace BarelyBreakConsoleApp
 
                 if (m != 3)
                 {
-                    _nextSteps[i].Add(i+1);
+                    _nextSteps[i].Add(i + 1);
                 }
 
                 if (m != 0)
@@ -72,13 +54,6 @@ namespace BarelyBreakConsoleApp
                     _nextSteps[i].Add(i + 4);
                 }
             }
-
-            _statePool = new ObjectPool<byte[]>(Clone);
-        }
-
-        public static void ReturnState(BarleyState state)
-        {
-            _statePool.Return(state._currentState);
         }
         public BarleyState(byte[] initState)
         {
@@ -95,7 +70,7 @@ namespace BarelyBreakConsoleApp
             _spaceIndex = spaceIndex;
             HashCode = CalculateHash();
         }
-        public BarleyState(byte[] initState,int heuristic)
+        public BarleyState(byte[] initState, int heuristic)
         {
             _currentState = initState;
             _heuristic = heuristic;
@@ -125,7 +100,7 @@ namespace BarelyBreakConsoleApp
             {
                 long t = _currentState[i];
                 hash = hash | t << offset;
-                offset +=4;
+                offset += 4;
             }
             return hash;
         }
@@ -144,12 +119,12 @@ namespace BarelyBreakConsoleApp
 
             return sum;
         }
-        private int SonHeuristic(int spaceIndex,int swapIndex)
+        private int SonHeuristic(int spaceIndex, int swapIndex)
         {
-            return _heuristic - ManhattanWay(swapIndex, _currentState[swapIndex]) 
+            return _heuristic - ManhattanWay(swapIndex, _currentState[swapIndex])
                 + ManhattanWay(spaceIndex, _currentState[swapIndex]);
         }
-        private int ManhattanWay(int index,int currentValue)
+        private int ManhattanWay(int index, int currentValue)
         {
             int d = index / 4;
             int m = index % 4;
@@ -173,7 +148,6 @@ namespace BarelyBreakConsoleApp
             Swap(ref _currentState[currentButton], ref _currentState[anotherButton]);
         }
 
-        
         public List<BarleyState> NextStep()
         {
             var ans = new List<BarleyState>(4);
@@ -185,10 +159,9 @@ namespace BarelyBreakConsoleApp
                 Swap(ref step[spaceIndex], ref step[_nextSteps[spaceIndex][i]]);
                 ans.Add(new BarleyState(step, SonHeuristic(spaceIndex, _nextSteps[spaceIndex][i]), (byte)_nextSteps[spaceIndex][i]));
             }
-            //_statePool.Clear();
             return ans;
         }
-        
+
         private static void Swap(ref byte a, ref byte b)
         {
             byte t = a;
@@ -196,27 +169,23 @@ namespace BarelyBreakConsoleApp
             b = t;
         }
 
-        private static byte[] Clone()
-        {
-            return new byte[16];
-        }
         private static byte[] Clone(byte[] state)
         {
-            byte[] clone = _statePool.Get();
+            byte[] clone = new byte[16];
             for (int i = 0; i < clone.Length; ++i)
             {
                 clone[i] = state[i];
             }
             return clone;
         }
-        
+
         public int CompareTo(BarleyState state)
         {
             if (Priority < state.Priority)
             {
                 return -1;
             }
-            else if(Priority > state.Priority)
+            else if (Priority > state.Priority)
             {
                 return 1;
             }
